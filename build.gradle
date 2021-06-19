@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.testng', name: 'testng', version: '7.0.0'
+    compile 'io.rest-assured:rest-assured:4.4.0'
+    compile 'io.rest-assured:json-path:4.4.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.12.1'
+}
+
+project.tasks.withType(Test) {
+    useTestNG()
+}
+
+task testDiceGameDistribution(type: Test) {
+    include "com/dice/game/**"
+}
