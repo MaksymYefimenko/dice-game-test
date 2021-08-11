@@ -32,25 +32,25 @@ public class GameApiTest {
     }
 
     @Test(dataProvider = "rollsNegativeDices")
-    public void testDicesNegative(int dices, int fases, int rolls ){
+    public void testDicesNegative(int dices, int faces, int rolls ){
         DiceGameBO diceGameBO = new DiceGameBO();
-        String response = diceGameBO.rollDices(dices,fases,rolls,HttpStatus.SC_BAD_REQUEST);
+        String response = diceGameBO.rollDices(dices,faces,rolls,HttpStatus.SC_BAD_REQUEST);
         Assert.assertEquals(response,"Bad request. Dices amount should be in range [1-100]");
 
 
     }
     @Test(dataProvider = "rollsNegativeFaces")
-    public void testFacesNegative(int dices, int fases, int rolls ){
+    public void testFacesNegative(int dices, int faces, int rolls ){
         DiceGameBO diceGameBO = new DiceGameBO();
-        String response = diceGameBO.rollDices(dices,fases,rolls,HttpStatus.SC_BAD_REQUEST);
+        String response = diceGameBO.rollDices(dices,faces,rolls,HttpStatus.SC_BAD_REQUEST);
         Assert.assertEquals(response,"Bad request. Faces amount should be in range [1-1000000]");
 
 
     }
     @Test(dataProvider = "rollsNegativeRolls")
-    public void testRollsNegative(int dices, int fases, int rolls ){
+    public void testRollsNegative(int dices, int faces, int rolls ){
         DiceGameBO diceGameBO = new DiceGameBO();
-        String response = diceGameBO.rollDices(dices,fases,rolls,HttpStatus.SC_BAD_REQUEST);
+        String response = diceGameBO.rollDices(dices,faces,rolls,HttpStatus.SC_BAD_REQUEST);
         Assert.assertEquals(response,"Bad request. Rolls amount should be in range [1-100000]");
 
 
